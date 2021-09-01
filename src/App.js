@@ -5,37 +5,12 @@ import Bio from "./components/Bio/Bio";
 import Header from "./components/Header/Header";
 import Data from "./data.json";
 import Banque from "./components/Banque/Banque";
+import Moviecard from "./components/Moviecard/Moviecard";
+import Filter from "./components/Filter/Filter";
+import react, { useState } from "react";
+
 function App() {
-  const obj = {
-    id: 1,
-    company: "Photosnap",
-    logo: "./images/photosnap.svg",
-    new: true,
-    featured: true,
-    position: "Senior Frontend Developer",
-    role: "Frontend",
-    level: "Senior",
-    postedAt: "1d ago",
-    contract: "Full Time",
-    location: "USA Only",
-    languages: ["HTML", "CSS", "JavaScript"],
-    tools: [],
-  };
-  const obj2 = {
-    id: 2,
-    company: "Manage",
-    logo: "./images/manage.svg",
-    new: true,
-    featured: true,
-    position: "Fullstack Developer",
-    role: "Fullstack",
-    level: "Midweight",
-    postedAt: "1d ago",
-    contract: "Part Time",
-    location: "Remote",
-    languages: ["Python"],
-    tools: ["React"],
-  };
+  const [movies, setMovie] = useState(Data);
   return (
     <div className="App">
       {/* <Header />
@@ -43,7 +18,14 @@ function App() {
         <Jobs key={value.id} job={value} />
       ))}
       <Banque /> */}
-      <Bio />
+      {/* <Bio /> */}
+
+      <Filter setMovie={setMovie} movies={Data} />
+      {movies.map((movie) => (
+        <Moviecard movie={movie} />
+      ))}
+
+      {/* <Data /> */}
     </div>
   );
 }
