@@ -1,9 +1,18 @@
 import React from "react";
 import "./Moviecard.css";
+import { useHistory } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 const Moviecard = (props) => {
+  const history = useHistory();
+  // const { url, path } = useRouteWatch();
   return (
-    <div className="MovieCard">
+    <div
+      onClick={() => {
+        history.push(`/details/${props.movie.id}`);
+      }}
+      className="MovieCard"
+    >
       <img className="background" src={props.movie.picture} />
       <div>
         <h1 className="title inline">{props.movie.title} </h1>

@@ -15,7 +15,9 @@
   color: beige;
   font-weight: bold;
 }
-
+.MovieCard:hover {
+  cursor: pointer;
+}
 .background {
   position: relative;
   width: 100%;
